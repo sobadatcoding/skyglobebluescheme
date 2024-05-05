@@ -5566,7 +5566,7 @@ SkySphere = function (constellations) {
     this.radius = this.initialRadius = this.options.initialRadius || Math.min(this.containerWidth, this.containerHeight) * 0.45;
     this.context = this.canvas.getContext('2d');
     this.context.lineWidth = 1;
-    this.options.haloSize = this.options.haloSize || 3;
+    this.options.haloSize = this.options.haloSize || 5;
     // Generating the sky lines and points.
     var i, constellationLines = constellations.l, stars = constellations.s;
     for (i = 0; i < constellationLines.length; i++) {
@@ -5742,7 +5742,7 @@ SkySphere = function (constellations) {
         }
     }
     // In the drawSky method
-    context.fillStyle = 'rgba(255, 255, 0, 0.3)'; // Semi-transparent yellow color for the halo
+    context.fillStyle = 'rgba(255, 255, 0, 0.1)'; // Semi-transparent yellow color for the halo
     for (i = 0; i < this.starPoints.length; i++) {
         skyPoint = this.starPoints[i];
         if (skyPoint.z >= 0) {
