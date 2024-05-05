@@ -5566,7 +5566,6 @@ SkySphere = function (constellations) {
     this.radius = this.initialRadius = this.options.initialRadius || Math.min(this.containerWidth, this.containerHeight) * 0.45;
     this.context = this.canvas.getContext('2d');
     this.context.lineWidth = 1;
-    this.options.haloSize = this.options.haloSize || 5;
     // Generating the sky lines and points.
     var i, constellationLines = constellations.l, stars = constellations.s;
     for (i = 0; i < constellationLines.length; i++) {
@@ -5714,7 +5713,7 @@ SkySphere = function (constellations) {
     var context = this.context;
     var i, star, skyPoint, skyPoint1, skyPoint2, radius;
     context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    context.fillStyle = this.options.backgroundColor || '#00008B';
+    context.fillStyle = this.options.backgroundColor || '#000066';
     context.strokeStyle = '#40E0D0';
     context.beginPath();
     context.arc(this.containerWidth / 2, this.containerHeight / 2, this.radius, 0, 2 * Math.PI, true);
@@ -5741,16 +5740,6 @@ SkySphere = function (constellations) {
             context.fill();
         }
     }
-    // In the drawSky method
-    context.fillStyle = 'rgba(255, 255, 0, 0.1)'; // Semi-transparent yellow color for the halo
-    for (i = 0; i < this.starPoints.length; i++) {
-        skyPoint = this.starPoints[i];
-        if (skyPoint.z >= 0) {
-            context.beginPath();
-            context.arc(Math.floor(skyPoint.x), Math.floor(skyPoint.y), this.options.haloSize, 0, 2 * Math.PI, true);
-            context.fill();
-    }
-}
     for (i = 0; i < this.objectPoints.length; i++) {
         skyPoint = this.objectPoints[i];
         if (skyPoint.z >= 0) {
